@@ -13,17 +13,6 @@ pipeline {
         gateProducesArtifact file: 'application.sh', label: 'Dummy artifact to be consumed by Deploy (master branch) gate'
       }
     }
-    stage('Test') {
-      when {
-        beforeAgent true
-        branch 'test'
-      }
-      steps {
-        error 'fake error to force failure in test stage/gate'
-        copyArtifacts projectName: '../helloworld-api/development'
-        gateConsumesArtifact file: 'application.sh'
-      }
-    }
     stage('Deploy') {
       when {
         beforeAgent true
