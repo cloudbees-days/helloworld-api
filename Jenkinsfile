@@ -21,7 +21,6 @@ pipeline {
       steps {
         copyArtifacts projectName: '../helloworld-api/development'
         gateConsumesArtifact file: 'application.sh'
-        error 'fake error to force failure in test stage/gate'
       }
     }
     stage('Deploy') {
