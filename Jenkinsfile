@@ -21,7 +21,6 @@ pipeline {
       steps {
         copyArtifacts projectName: '../helloworld-api/development'
         gateConsumesArtifact file: 'application.sh'
-        error "Test error to Test Failures edit"
       }
     }
     stage('Deploy') {
