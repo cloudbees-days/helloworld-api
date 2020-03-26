@@ -31,6 +31,7 @@ pipeline {
       steps {
         copyArtifacts projectName: '../helloworld-api/development'
         gateConsumesArtifact file: 'application.sh'
+        publishEvent simpleEvent('hello-api-deploy-event')
       }
     }
   }
